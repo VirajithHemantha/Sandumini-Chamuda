@@ -645,7 +645,7 @@ export default function WeddingInvitation() {
                     <div className="relative z-10 space-y-4 py-8 md:py-12">
                       <div className="space-y-2">
                         <p className="text-[7px] md:text-[8px] uppercase tracking-[0.4em] font-bold text-stone-400">Beloved son of</p>
-                        <p className="text-xs md:text-sm font-cinzel text-stone-600 tracking-wide leading-relaxed">Mr. Gamini<br />& Mrs. Samdura</p>
+                        <p className="text-xs md:text-sm font-cinzel text-stone-600 tracking-wide leading-relaxed">Mr. Gamini<br />& Mrs. Samadara</p>
                       </div>
                       <h3 className="text-5xl md:text-7xl font-playball text-theme-800 group-hover:scale-110 transition-transform duration-700 pt-6 drop-shadow-sm">Chamuda</h3>
                     </div>
@@ -701,17 +701,33 @@ export default function WeddingInvitation() {
                       <Sparkles className="w-6 h-6 text-theme-400" />
                     </div>
 
-                    <div className="space-y-4 flex flex-col items-center">
-                      <p className="text-[10px] md:text-[12px] uppercase tracking-[0.5em] text-stone-400 font-bold">Auspicious Ceremony</p>
-                      <h4 className="font-cinzel text-2xl md:text-4xl text-theme-900 tracking-[0.3em] font-bold drop-shadow-sm px-4 text-center">PORUWA CEREMONY</h4>
-
-                      <div className="flex items-center gap-6 mt-6">
-                        <div className="w-12 md:w-20 h-[1.5px] bg-gradient-to-r from-transparent to-theme-300" />
+                    <div className="space-y-6 flex flex-col items-center w-full mt-2">
+                      <p className="text-[10px] md:text-[12px] uppercase tracking-[0.5em] text-stone-400 font-bold">Auspicious Ceremonies</p>
+                      
+                      <div className="flex flex-col md:flex-row items-center gap-10 md:gap-16 w-full justify-center">
+                        {/* Registration */}
                         <div className="flex flex-col items-center">
-                          <p className="font-cinzel text-xl md:text-2xl text-theme-700 font-bold tracking-[0.2em]">10:30 AM</p>
-                          <p className="text-[8px] md:text-[9px] uppercase tracking-[0.3em] text-theme-400 font-bold mt-1">Onwards</p>
+                          <h4 className="font-cinzel text-xl md:text-3xl text-theme-900 tracking-[0.2em] font-bold drop-shadow-sm px-4 text-center mb-4">REGISTRATION</h4>
+                          <div className="flex items-center gap-4">
+                            <div className="w-8 md:w-12 h-[1.5px] bg-gradient-to-r from-transparent to-theme-300" />
+                            <p className="font-cinzel text-lg md:text-2xl text-theme-700 font-bold tracking-[0.2em]">10:40 AM</p>
+                            <div className="w-8 md:w-12 h-[1.5px] bg-gradient-to-l from-transparent to-theme-300" />
+                          </div>
                         </div>
-                        <div className="w-12 md:w-20 h-[1.5px] bg-gradient-to-l from-transparent to-theme-300" />
+
+                        {/* Divider */}
+                        <div className="hidden md:block w-px h-16 bg-theme-200" />
+                        <div className="md:hidden h-px w-16 bg-theme-200" />
+
+                        {/* Poruwa */}
+                        <div className="flex flex-col items-center">
+                          <h4 className="font-cinzel text-xl md:text-3xl text-theme-900 tracking-[0.2em] font-bold drop-shadow-sm px-4 text-center mb-4">PORUWA CEREMONY</h4>
+                          <div className="flex items-center gap-4">
+                            <div className="w-8 md:w-12 h-[1.5px] bg-gradient-to-r from-transparent to-theme-300" />
+                            <p className="font-cinzel text-lg md:text-2xl text-theme-700 font-bold tracking-[0.2em]">11:08 AM</p>
+                            <div className="w-8 md:w-12 h-[1.5px] bg-gradient-to-l from-transparent to-theme-300" />
+                          </div>
+                        </div>
                       </div>
                     </div>
 
@@ -874,7 +890,7 @@ export default function WeddingInvitation() {
                     <div className="h-px w-16 md:w-24 bg-gradient-to-l from-transparent to-theme-300" />
                   </div>
                   <p className="text-stone-300 text-sm md:text-base max-w-md mx-auto leading-relaxed mb-16 tracking-wide font-light">
-                    We would be absolutely thrilled to celebrate with you. Kindly respond using the form below or contact us at:<br/><br/>
+                    We would be absolutely thrilled to celebrate with you. Kindly respond using the form below or contact us at:<br /><br />
                     <span className="font-bold text-white">076 2525812</span> | <span className="font-bold text-white">071 3363258</span>
                   </p>
 
