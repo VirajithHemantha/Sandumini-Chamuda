@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Sparkles, MapPin, Calendar, Clock } from "lucide-react";
+import StorySection from "./StorySection";
 
 /**
  * Premium White & Silver Wedding Invitation Theme
@@ -308,12 +309,16 @@ export default function WeddingInvitation() {
 
   return (
     <main
-      className={`h-[100dvh] w-full bg-[#FFFFFF] transition-all duration-1000 ${isOpened ? "overflow-y-auto overflow-x-hidden smooth-mobile-scroll" : "overflow-hidden flex items-center justify-center"
+      className={`h-[100dvh] w-full transition-all duration-1000 ${isOpened ? "overflow-y-auto overflow-x-hidden smooth-mobile-scroll" : "overflow-hidden flex items-center justify-center"
         } relative font-montserrat scroll-smooth`}
+      style={{
+        backgroundImage: 'url(/images/back.jpg)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'top left',
+        backgroundAttachment: 'fixed',
+      }}
     >
       <audio ref={audioRef} src={backgroundMusic} loop />
-      <MandalaFrame minimal={isLowPerformanceMode} />
-      <FloatingPetals disabled={isLowPerformanceMode} />
 
       <AnimatePresence mode="wait">
         {!isOpened ? (
@@ -436,9 +441,8 @@ export default function WeddingInvitation() {
             </motion.button>
 
             {/* Hero Section */}
-            <section className="min-h-[100dvh] w-full flex items-center justify-center p-4 md:p-12 relative overflow-hidden bg-[#FFFFFF]">
-              {/* Background texture */}
-              <div className="absolute inset-0 opacity-[0.03] paper-grain" />
+            <section className="min-h-[100dvh] w-full flex items-center justify-center p-4 md:p-12 relative overflow-hidden bg-transparent">
+              {/* Background texture removed */}
 
               {/* Large Watermark Monogram */}
               <motion.div
@@ -555,13 +559,7 @@ export default function WeddingInvitation() {
 
             {/* Wedding Details Section */}
             <section className="cv-auto py-24 md:py-32 w-full flex flex-col items-center px-4 relative">
-              <div className="section-floral-overlay absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden z-0">
-                {/* Silver Orchids in Corners */}
-                <InviteImage src={flowerImage} className="absolute -left-12 -top-12 w-[220px] md:w-[380px] h-auto opacity-70 object-contain -rotate-[105deg]" alt="" />
-                <InviteImage src={flowerImage} className="absolute -right-12 -top-12 w-[220px] md:w-[380px] h-auto opacity-70 object-contain -rotate-[15deg]" alt="" />
-                <InviteImage src={flowerImage} className="absolute -left-12 -bottom-12 w-[220px] md:w-[380px] h-auto opacity-70 object-contain rotate-[165deg]" alt="" />
-                <InviteImage src={flowerImage} className="absolute -right-12 -bottom-12 w-[220px] md:w-[380px] h-auto opacity-70 object-contain rotate-[75deg]" alt="" />
-              </div>
+              {/* section-floral-overlay removed */}
 
               <div className="max-w-[1000px] w-full flex flex-col items-center text-center relative z-10">
                 <motion.div
@@ -684,8 +682,8 @@ export default function WeddingInvitation() {
                     <div className="flex flex-col items-center flex-1">
                       <Clock className="w-6 h-6 md:w-8 md:h-8 text-theme-500 mb-4 opacity-80" />
                       <p className="text-[9px] md:text-[10px] uppercase tracking-[0.3em] md:tracking-[0.4em] text-stone-400 font-bold mb-3">The Time</p>
-                      <p className="font-cinzel text-xl md:text-3xl text-theme-900 tracking-widest font-bold whitespace-nowrap">09:30 AM</p>
-                      <p className="font-cinzel text-xs md:text-sm text-theme-600 tracking-[0.2em] mt-3 uppercase">To 05:00 PM</p>
+                      <p className="font-cinzel text-xl md:text-3xl text-theme-900 tracking-widest font-bold whitespace-nowrap">09.30 a.m.</p>
+                      <p className="font-cinzel text-xs md:text-sm text-theme-600 tracking-[0.2em] mt-3 uppercase">To 05.00 p.m.</p>
                     </div>
                   </div>
 
@@ -705,26 +703,12 @@ export default function WeddingInvitation() {
                       <p className="text-[10px] md:text-[12px] uppercase tracking-[0.5em] text-stone-400 font-bold">Auspicious Ceremonies</p>
                       
                       <div className="flex flex-col md:flex-row items-center gap-10 md:gap-16 w-full justify-center">
-                        {/* Registration */}
-                        <div className="flex flex-col items-center">
-                          <h4 className="font-cinzel text-xl md:text-3xl text-theme-900 tracking-[0.2em] font-bold drop-shadow-sm px-4 text-center mb-4">REGISTRATION</h4>
-                          <div className="flex items-center gap-4">
-                            <div className="w-8 md:w-12 h-[1.5px] bg-gradient-to-r from-transparent to-theme-300" />
-                            <p className="font-cinzel text-lg md:text-2xl text-theme-700 font-bold tracking-[0.2em]">10:40 AM</p>
-                            <div className="w-8 md:w-12 h-[1.5px] bg-gradient-to-l from-transparent to-theme-300" />
-                          </div>
-                        </div>
-
-                        {/* Divider */}
-                        <div className="hidden md:block w-px h-16 bg-theme-200" />
-                        <div className="md:hidden h-px w-16 bg-theme-200" />
-
                         {/* Poruwa */}
                         <div className="flex flex-col items-center">
                           <h4 className="font-cinzel text-xl md:text-3xl text-theme-900 tracking-[0.2em] font-bold drop-shadow-sm px-4 text-center mb-4">PORUWA CEREMONY</h4>
                           <div className="flex items-center gap-4">
                             <div className="w-8 md:w-12 h-[1.5px] bg-gradient-to-r from-transparent to-theme-300" />
-                            <p className="font-cinzel text-lg md:text-2xl text-theme-700 font-bold tracking-[0.2em]">11:08 AM</p>
+                            <p className="font-cinzel text-lg md:text-2xl text-theme-700 font-bold tracking-[0.2em]">10.30 am</p>
                             <div className="w-8 md:w-12 h-[1.5px] bg-gradient-to-l from-transparent to-theme-300" />
                           </div>
                         </div>
@@ -742,10 +726,11 @@ export default function WeddingInvitation() {
               </div>
             </section>
 
+            <StorySection />
+
             {/* Countdown Section */}
-            <section className="cv-auto py-24 md:py-36 bg-[#F9FAFB] relative border-y border-theme-100/30 flex flex-col items-center overflow-hidden">
-              {/* Premium Background Elements */}
-              <div className="absolute inset-0 opacity-[0.03] paper-grain pointer-events-none" />
+            <section className="cv-auto py-24 md:py-36 bg-white/60 backdrop-blur-sm relative border-y border-theme-100/30 flex flex-col items-center overflow-hidden">
+              {/* Premium Background Elements removed */}
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[800px] aspect-square bg-theme-100 blur-[120px] rounded-full opacity-30 pointer-events-none" />
 
               <div className="w-full max-w-[1000px] px-4 flex flex-col items-center text-center relative z-10">
@@ -782,9 +767,8 @@ export default function WeddingInvitation() {
             </section>
 
             {/* Venue Location Section */}
-            <section className="cv-auto py-24 md:py-36 bg-[#FFFFFF] relative overflow-hidden">
-              {/* Decorative Background */}
-              <div className="absolute inset-0 opacity-5 paper-grain pointer-events-none" />
+            <section className="cv-auto py-24 md:py-36 bg-white/40 backdrop-blur-sm relative overflow-hidden">
+              {/* Decorative Background removed */}
               <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-theme-200 blur-[150px] rounded-full opacity-20 pointer-events-none" />
 
               <div className="container mx-auto px-6 max-w-6xl relative z-10">
@@ -824,7 +808,7 @@ export default function WeddingInvitation() {
 
                     <div className="pt-8 w-full md:w-auto">
                       <button
-                        onClick={() => window.open('https://maps.app.goo.gl/R6SaoWJYNKyhVdXT8', '_blank')}
+                        onClick={() => window.open('https://maps.app.goo.gl/Ugit4Fomev4yihkM7', '_blank')}
                         className="w-full md:w-auto flex items-center justify-center gap-4 bg-theme-800 text-white px-10 py-5 rounded-full font-bold uppercase tracking-[0.2em] text-[10px] md:text-xs hover:bg-theme-900 hover:shadow-xl hover:shadow-theme-900/20 transition-all duration-300 group"
                       >
                         <MapPin className="w-4 h-4 group-hover:-translate-y-1 transition-transform duration-300" />
@@ -869,9 +853,8 @@ export default function WeddingInvitation() {
             </section>
 
             {/* RSVP Section */}
-            <section className="cv-auto py-24 md:py-36 bg-[#18181B] text-white relative overflow-hidden flex flex-col items-center">
-              {/* Opulent dark background */}
-              <div className="absolute inset-0 opacity-10 paper-grain pointer-events-none" />
+            <section className="cv-auto py-24 md:py-36 bg-black/60 backdrop-blur-md text-white relative overflow-hidden flex flex-col items-center">
+              {/* Opulent dark background removed */}
               <div className="absolute top-0 right-0 w-[60vw] h-[60vw] max-w-[800px] bg-theme-800 blur-[150px] rounded-full opacity-30 pointer-events-none" />
               <div className="absolute bottom-0 left-0 w-[60vw] h-[60vw] max-w-[800px] bg-theme-900 blur-[150px] rounded-full opacity-40 pointer-events-none" />
 
@@ -955,12 +938,9 @@ export default function WeddingInvitation() {
             </section>
 
             {/* Wishing Section and Footer Wrapper */}
-            <div className="relative bg-[#FFFFFF]">
-              <div className="absolute inset-0 opacity-[0.03] paper-grain pointer-events-none" />
+            <div className="relative bg-white/40 backdrop-blur-sm">
 
               <section className="cv-auto py-24 md:py-36 relative flex flex-col items-center overflow-hidden">
-                <InviteImage src={flowerImage} alt="" className="absolute top-0 right-0 w-[40vw] max-w-[500px] opacity-[0.06] translate-x-1/3 -translate-y-1/3 pointer-events-none" />
-                <InviteImage src={flowerImage} alt="" className="absolute bottom-16 left-1/2 w-[38vw] max-w-[360px] opacity-[0.1] -translate-x-1/2 pointer-events-none" />
 
                 <div className="container mx-auto px-4 max-w-4xl text-center relative z-10 w-full">
                   <motion.div

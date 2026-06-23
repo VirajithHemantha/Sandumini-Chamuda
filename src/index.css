@@ -130,8 +130,7 @@ html, body {
 .website-shell {
   background:
     radial-gradient(circle at 18% 14%, rgba(192, 192, 192, 0.19), transparent 38%),
-    radial-gradient(circle at 84% 72%, rgba(156, 163, 175, 0.16), transparent 42%),
-    linear-gradient(180deg, #ffffff 0%, #f9fafb 42%, #ffffff 100%);
+    radial-gradient(circle at 84% 72%, rgba(156, 163, 175, 0.16), transparent 42%);
 }
 
 .section-floral-overlay {
