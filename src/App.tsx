@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Sparkles, MapPin, Calendar, Clock } from "lucide-react";
+import { Sparkles, MapPin, Calendar, Clock, Volume2, VolumeX } from "lucide-react";
 import StorySection from "./StorySection";
 
 /**
@@ -211,6 +211,7 @@ const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzvj3zhBP48CM57DV98-
 export default function WeddingInvitation() {
   const [isOpened, setIsOpened] = useState(false);
   const [isLowPerformanceMode, setIsLowPerformanceMode] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
   const audioRef = React.useRef<HTMLAudioElement | null>(null);
 
   // Form State
@@ -272,7 +273,24 @@ export default function WeddingInvitation() {
   const openInvitation = () => {
     setIsOpened(true);
     if (audioRef.current) {
-      audioRef.current.play().catch(e => console.log("Audio play failed", e));
+      audioRef.current.play().then(() => {
+        setIsPlaying(true);
+      }).catch((err) => {
+        console.log("Audio playback failed, likely due to browser autoplay policy.", err);
+      });
+    }
+  };
+
+  const toggleMusic = () => {
+    if (audioRef.current) {
+      if (isPlaying) {
+        audioRef.current.pause();
+        setIsPlaying(false);
+      } else {
+        audioRef.current.play().then(() => {
+          setIsPlaying(true);
+        }).catch(console.error);
+      }
     }
   };
 
@@ -438,6 +456,16 @@ export default function WeddingInvitation() {
               <div className="flex flex-col items-center">
                 <div className="text-[8px] uppercase tracking-widest font-bold">Close</div>
               </div>
+            </motion.button>
+
+            {/* Sticky Music Button */}
+            <motion.button
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              onClick={toggleMusic}
+              className="fixed bottom-6 right-6 md:bottom-12 md:right-12 z-50 bg-white/90 backdrop-blur-md p-3 rounded-full shadow-xl border-2 border-theme-400/40 text-theme-800 hover:bg-theme-50 transition-all hover:scale-110"
+            >
+              {isPlaying ? <Volume2 size={24} /> : <VolumeX size={24} />}
             </motion.button>
 
             {/* Hero Section */}
