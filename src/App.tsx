@@ -206,7 +206,7 @@ function CountdownTimer() {
   );
 }
 
-const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwPF232Meqv4P56WQku65d5dlJgzU5wz799BJkanXfcSqkjbgd7N54Xrs19Ux619qS9/exec";
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzvj3zhBP48CM57DV98-JF1Xexo2pjikzwhjDVIUg4BBLZkkZeWYKvmY795K7oMtGUE/exec";
 
 export default function WeddingInvitation() {
   const [isOpened, setIsOpened] = useState(false);
@@ -709,6 +709,20 @@ export default function WeddingInvitation() {
                           <div className="flex items-center gap-4">
                             <div className="w-8 md:w-12 h-[1.5px] bg-gradient-to-r from-transparent to-theme-300" />
                             <p className="font-cinzel text-lg md:text-2xl text-theme-700 font-bold tracking-[0.2em]">10.30 am</p>
+                            <div className="w-8 md:w-12 h-[1.5px] bg-gradient-to-l from-transparent to-theme-300" />
+                          </div>
+                        </div>
+
+                        {/* Divider */}
+                        <div className="hidden md:block w-px h-16 bg-theme-200" />
+                        <div className="md:hidden h-px w-16 bg-theme-200" />
+
+                        {/* Registration */}
+                        <div className="flex flex-col items-center">
+                          <h4 className="font-cinzel text-xl md:text-3xl text-theme-900 tracking-[0.2em] font-bold drop-shadow-sm px-4 text-center mb-4">REGISTRATION</h4>
+                          <div className="flex items-center gap-4">
+                            <div className="w-8 md:w-12 h-[1.5px] bg-gradient-to-r from-transparent to-theme-300" />
+                            <p className="font-cinzel text-lg md:text-2xl text-theme-700 font-bold tracking-[0.2em]">10.40 am</p>
                             <div className="w-8 md:w-12 h-[1.5px] bg-gradient-to-l from-transparent to-theme-300" />
                           </div>
                         </div>
